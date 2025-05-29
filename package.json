@@ -1,0 +1,29 @@
+{
+  "name": "khatamogo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./public/css/output.css --watch",
+    "start:server": "nodemon app.js",
+    "dev": "concurrently \"npm run build:css\" \"npm run start:server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.15.0",
+    "nodemon": "^3.1.10",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.4",
+    "concurrently": "^9.1.2",
+    "tailwindcss": "^4.1.4"
+  }
+}

@@ -1,0 +1,58 @@
+<script>
+  function handleEncrypt() {
+    const check = document.querySelector('.check');
+    const passcode = document.querySelector('.passcode');
+    if (check.checked) {
+      passcode.disabled = false;
+      passcode.placeholder = "Enter Passcode";
+      passcode.classList.remove('cursor-default');
+      passcode.classList.add('cursor-text');
+    } else {
+      passcode.disabled = true;
+      passcode.placeholder = "Enable encryption";
+      passcode.classList.remove('cursor-text');
+      passcode.classList.add('cursor-default');
+    }
+  }
+</script>
+
+<div class="bg-indigo-500 grid grid-cols-1 md:grid-cols-2 h-[90svh]">
+  <!-- Left branding -->
+  <div class="text-white flex flex-col items-center justify-center p-10">
+    <h1 class="text-4xl font-bold mb-3">KhaataBook</h1>
+    <p class="text-lg opacity-90">Log every ₹ you spend, encrypted and safe.</p>
+    <p class="mt-10 text-md opacity-70">By Shubham-404</p>
+  </div>
+
+  <!-- Right form -->
+  <div class="flex items-center justify-center bg-white bg-no-repeat bg-[length:auto_50%] bg-bottom bg-[url('/images/undraw_quiet-street.png')]">
+    <form action="/saveHisaab" method="POST"
+      class="w-full max-w-md p-8 bg-white rounded-xl shadow-md shadow-gray-400 flex flex-col gap-4">
+
+      <h1 class="text-2xl font-semibold text-gray-700 text-center">Add Hisaab 📝</h1>
+
+      <input type="hidden" name="username" value="<%= username %>" />
+
+      <input type="date" required name="date" value="<%= today %>" max="<%= today %>"
+        class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none text-gray-700" />
+
+      <input type="text" required name="amount" placeholder="Amount in ₹ (e.g., 3000)"
+        class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none text-gray-700" />
+
+      <textarea name="description" required placeholder="Description (e.g., Rent, Grocery)"
+        class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none text-gray-700 resize-none h-24"></textarea>
+
+      <div class="flex items-center gap-3">
+        <label class="text-gray-600 font-medium">Encrypt?</label>
+        <input type="checkbox" onchange="handleEncrypt()" name="encrypt" class="check h-5 w-5 accent-indigo-500">
+        <input type="text" name="passcode" disabled placeholder="Enable encryption"
+          class="passcode flex-1 px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none cursor-default text-gray-700">
+      </div>
+
+      <button type="submit"
+        class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded-xl shadow-md transition-all">
+        ➕ Add Hisaab
+      </button>
+    </form>
+  </div>
+</div>

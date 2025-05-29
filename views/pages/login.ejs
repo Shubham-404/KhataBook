@@ -1,0 +1,44 @@
+<% if (query.success==='created' ) { %>
+    <script>
+        alert("Sign up successful. Kindly login.");
+    </script>
+    <% } else if (query.success==='failed' ) { %>
+        <script>
+            alert("User not created. Try again!");
+        </script>
+        <% } else if (query.error==='invalid' ) { %>
+            <script>
+                alert("Incorrect Username or Password!");
+            </script>
+            <% } %>
+
+                <div class="bg-indigo-500 grid grid-cols-1 md:grid-cols-2 h-[90svh]">
+                    <!-- Left branding / info section -->
+                    <div class=" text-white flex flex-col items-center justify-center p-10">
+                        <h1 class="text-4xl font-bold mb-3">KhaataBook</h1>
+                        <p class="text-lg opacity-90">Your digital ledger — secure, simple, encrypted.</p>
+                        <p class="mt-10 text-md opacity-70">By Shubham-404</p>
+                    </div>
+
+                    <!-- Right form section -->
+                    <div
+                        class="flex items-center justify-center rounded-tl-4xl rounded-bl-4xl bg-no-repeat bg-[length:auto_50%] bg-bottom bg-[url('/images/undraw_quiet-street.png')] bg-white">
+                        <!-- Your login or signup form here -->
+                        <div class="flex justify-center items-center min-h-[60vh] px-4">
+                            <form action="/verify" method="POST"
+                                class="w-full max-w-md p-8 bg-white rounded-xl shadow-md shadow-gray-400 flex flex-col gap-4">
+
+                                <h1 class="text-2xl font-semibold text-gray-700 text-center">Login 🔐</h1>
+
+                                <input type="text" name="username" placeholder="Username" required
+                                    class="w-full px-4 py-2 bg-gray-50 inset-shadow-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none text-gray-700" />
+
+                                <input type="password" name="password" placeholder="Password" required
+                                    class="w-full px-4 py-2 bg-gray-50 inset-shadow-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none text-gray-700" />
+
+                                <input type="submit" value="Login"
+                                    class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-xl shadow-md cursor-pointer transition-all" />
+                            </form>
+                        </div>
+                    </div>
+                </div>

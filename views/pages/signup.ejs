@@ -1,0 +1,70 @@
+<% if (query.error==='exists' ) { %>
+    <script>alert('User already exists. Try another username.')</script>
+    <% } %>
+
+        <div class="bg-indigo-500 grid grid-cols-1 md:grid-cols-2 h-[90svh]">
+            <!-- Left branding / info section -->
+            <div class=" text-white flex flex-col items-center justify-center p-10">
+                <h1 class="text-4xl font-bold mb-3">KhaataBook</h1>
+                <p class="text-lg opacity-90">Your digital ledger — secure, simple, encrypted.</p>
+                <p class="mt-10 text-md opacity-70">By Shubham-404</p>
+            </div>
+
+            <!-- Right form section -->
+            <div
+                class="flex items-center justify-center rounded-tl-4xl rounded-bl-4xl bg-no-repeat bg-[length:auto_50%] bg-bottom bg-[url('/images/undraw_quiet-street.png')] bg-white">
+                <!-- Your login or signup form here -->
+                <div class="flex justify-center items-center min-h-[70vh] px-4">
+                    <form action="/save" method="POST"
+                        class="w-full max-w-md p-6 bg-white shadow-md shadow-gray-500 rounded-xl flex flex-col gap-4 items-center text-center">
+
+                        <h1 class="text-2xl text-gray-700 font-semibold">Sign Up 🔓</h1>
+
+                        <input type="text" name="name" placeholder="Full Name" required
+                            class="w-full px-4 py-2 bg-gray-50 inset-shadow-sm border border-gray-300 rounded-xl outline-none ring-indigo-500 focus:ring-2 text-gray-700" />
+
+                        <input type="text" name="username" placeholder="Username" required
+                            class="w-full px-4 py-2 bg-gray-50 inset-shadow-sm border border-gray-300 rounded-xl outline-none ring-indigo-500 focus:ring-2 text-gray-700" />
+
+                        <input type="password" name="password" placeholder="Password" required
+                            class="pass w-full px-4 py-2 bg-gray-50 inset-shadow-sm border border-gray-300 rounded-xl outline-none ring-indigo-500 focus:ring-2 text-gray-700" />
+
+                        <input type="password" placeholder="Confirm Password" required
+                            class="cnfm-pass w-full px-4 py-2 bg-gray-50 inset-shadow-sm border border-gray-300 rounded-xl outline-none ring-indigo-500 focus:ring-2 text-gray-700" />
+
+                        <span class="error hidden text-red-600 text-sm">Passwords don't match!</span>
+
+                        <button type="submit" disabled
+                            class="submit cursor-not-allowed px-4 py-2 bg-gray-400 text-white rounded-xl text-sm shadow-md shadow-gray-600 font-semibold transition-all">
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            const pass = document.querySelector('.pass');
+            const cnfmPass = document.querySelector('.cnfm-pass');
+            const submitBtn = document.querySelector('.submit');
+            const error = document.querySelector('.error');
+
+            function check() {
+                if (pass.value && pass.value === cnfmPass.value) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('cursor-not-allowed', 'bg-gray-400');
+                    submitBtn.classList.add('cursor-pointer', 'bg-red-500', 'hover:bg-red-600');
+                    error.classList.add('hidden');
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.remove('cursor-pointer', 'bg-red-500', 'hover:bg-red-600');
+                    submitBtn.classList.add('cursor-not-allowed', 'bg-gray-400');
+                    error.classList.remove('hidden');
+                }
+            }
+
+            pass.addEventListener('input', check);
+            cnfmPass.addEventListener('input', check);
+        </script>

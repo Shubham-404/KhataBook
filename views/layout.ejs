@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content=<%=description %> >
+  <title>
+    <%= title%>
+  </title>
+  <link href="/css/output.css" rel="stylesheet">
+  <link href="/css/styles.css" rel="stylesheet">
+  <style>
+    * {
+
+      box-sizing: border-box;
+      transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+    button:active {
+      scale: 0.95;
+    }
+  </style>
+</head>
+
+<body class="h-min bg-gradient-to-b from-indigo-600 via-indigo-200 to-white cover bg-no-repeat">
+
+
+  <div class="parent h-full w-full">
+
+    <!-- Navbar -->
+    <%- include("partials/layout/header")%>
+
+      <!-- Page content will go here -->
+      <main class="min-h-[80%] w-full ">
+        <%- body %> <!-- This is where the page-specific content gets injected -->
+      </main>
+
+      <!-- Footer -->
+      <%- include("partials/layout/footer")%>
+  </div>
+
+</body>
+
+</html>
