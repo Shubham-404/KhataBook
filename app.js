@@ -127,7 +127,7 @@ app.get("/:username/hisaab", async (req, res, next) => {
         }
         const hisaabs = user.hisaabs || ["No Hisaab Found"];
         const name = user.name || "User";
-        console.log("Hisaabs found:", hisaabs);
+        // console.log("Hisaabs found:", hisaabs);
         res.render("pages/myHisaab", getLocals("My Hisaab", "Hisaab Page", { username, name, hisaabs }));
     } catch (err) {
         next(err);
@@ -190,6 +190,39 @@ app.post("/saveHisaab", async (req, res, next) => {
         next(err);
     }
 });
+
+// Edit Hisaab (unchanged for brevity)
+app.get("/:username/edit/:id", async (req, res, next) => {
+    try {
+        const { username, id } = req.params;
+        const user = await userModel.findOne({ username });
+        const today = new Date();
+        if (!user) {
+            debug("User not found:", username);
+            return res.redirect("/login?error=invalid");
+        }
+        const hisaab = user.hisaabs.id(id);
+        if (!hisaab) {
+            debug("Hisaab not found:", id);
+            return res.redirect(`/${username}/hisaab?error=notfound`);
+        }
+        res.render("pages/editHisaab", getLocals("Edit Hisaab", "Edit Hisaab Page", {
+            today,
+            username,
+            hisaab: {
+                id,
+                date: hisaab.date,
+                amount: hisaab.amount,
+                description: hisaab.description,
+                encrypt: hisaab.encrypt,
+                passcode: hisaab.passcode
+            }
+        }));
+    } catch (err) {
+        next(err);
+    }
+});
+
 
 // Testing Routes (unchanged for brevity)
 app.get("/readall", async (req, res, next) => {
