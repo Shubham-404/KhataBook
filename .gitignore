@@ -1,4 +1,4 @@
 node_modules/
 package-lock.json
-utils/mongo.js
+public/css/output.css
 .env
