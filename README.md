@@ -24,14 +24,14 @@ Inspired by the original KhaataBook, this is a full-stack ledger management app 
 - **Security:** Input validation & clean data handling
 
 ## 📁 Project Structure
-KhaataBook/
-├── models/ # Mongoose Schemas
-├── public/ # Static assets (CSS, JS, images)
-├── routes/ # Express route handlers
-├── views/ # EJS templates
-├── .env # Environment variables
-├── app.js # Main app entry
-└── package.json
+KhaataBook/  
+├── models/ # Mongoose Schemas  
+├── public/ # Static assets (CSS, JS, images)  
+├── routes/ # Express route handlers  
+├── views/ # EJS templates  
+├── .env # Environment variables  
+├── app.js # Main app entry  
+└── package.json  
 
 ## 🔧 Setup Instructions
 
