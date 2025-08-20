@@ -1,8 +1,8 @@
-# 📘 KhaataBook Clone – Personal Ledger App
+# 📘 KhataBook Clone – Personal Ledger App
 
-Inspired by the original KhaataBook, this is a full-stack ledger management app built for learning, portfolio, and showcasing real-world backend practices.
+Inspired by the original KhataBook, this is a full-stack ledger management app built for learning, portfolio, and showcasing real-world backend practices.
 
-![KhaataBook Screenshot](./public/images/demo.png)
+![KhataBook Screenshot](./public/images/demo.png)
 
 ## 🚀 Features
 
@@ -24,7 +24,7 @@ Inspired by the original KhaataBook, this is a full-stack ledger management app 
 - **Security:** Input validation & clean data handling
 
 ## 📁 Project Structure
-KhaataBook/  
+KhataBook/  
 ├── models/ # Mongoose Schemas  
 ├── public/ # Static assets (CSS, JS, images)  
 ├── routes/ # Express route handlers  
@@ -37,8 +37,8 @@ KhaataBook/
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/Shubham-404/KhaataBook.git
-   cd KhaataBook
+   git clone https://github.com/Shubham-404/KhataBook.git
+   cd KhataBook
    
 2. **Install dependencies**
    ```bash
